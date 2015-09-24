@@ -13,10 +13,20 @@ void setup()
 void draw()
 {
   //your code here
+  for(int i = 0; i < blizzard.length; i++)
+  {
+    blizzard[i].erase();
+    blizzard[i].lookDown();
+    blizzard[i].move();
+    blizzard[i].wrap();
+    blizzard[i].show();
+  }
 }
 void mouseDragged()
 {
   //your code here
+  fill(60,70,167);
+  ellipse(mouseX,mouseY,14,14);
 }
 
 class Snowflake
@@ -28,14 +38,14 @@ class Snowflake
   {
     //class member variable initializations
     x = (int)(Math.random() * 700);
-    y = (int)(Math.random() * 700);
+    y = 0;
     isMoving = true;
   }
   void show()
   {
     //your code here
     fill(255);
-    ellipse(mouseX,mouseY,7,7);
+    ellipse(x,y,7,7);
   }
   void lookDown()
   {
@@ -43,6 +53,10 @@ class Snowflake
     if((y > 0 && y < 700) || (get(x,y) != color(0,0,0)))
       {
         isMoving = false;
+      }
+    else 
+      {
+        isMoving = true;
       }
   }
   void erase()
@@ -69,5 +83,3 @@ class Snowflake
       }
   }
 }
-
-
