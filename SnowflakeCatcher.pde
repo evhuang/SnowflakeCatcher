@@ -3,7 +3,8 @@ void setup()
 {
   //your code here
   size(400,400);
-  background(0);
+  fill(0);
+  rect(-100,-100,5000,5000);
   blizzard = new Snowflake[200];
   for(int i = 0; i < blizzard.length; i++)
     {
@@ -52,13 +53,14 @@ class Snowflake
   void show()
   {
     //your code here
+    noStroke();
     fill(255);
     ellipse(x,y,8,8);
   }
   void lookDown()
   {
     //your code here
-    if((y > 0 && y < 400) && (get(x,y+6) != color(0,0,0)))
+    if(y < 400 && y > 0  && get(x,y + 6) != color(0,0,0))
       {
         isMoving = false;
       }
@@ -86,7 +88,7 @@ class Snowflake
     //your code here
     if(y >= 400)
       {
-        y = (int)(Math.random() * -400);
+        y = 0;
         x = (int)(Math.random() * 400);
       }
   }
