@@ -2,7 +2,7 @@ Snowflake [] blizzard;
 void setup()
 {
   //your code here
-  size(400,400);
+  size(500,500);
   fill(0);
   rect(-100,-100,5000,5000);
   blizzard = new Snowflake[200];
@@ -34,7 +34,7 @@ void mouseDragged()
   else if(mouseButton==RIGHT)
   {
     fill(0,0,0);
-    ellipse(mouseX,mouseY,7,7);
+    ellipse(mouseX,mouseY,20,20);
   }
 }
 
@@ -46,21 +46,21 @@ class Snowflake
   Snowflake()
   {
     //class member variable initializations
-    x = (int)(Math.random() * 400);
-    y = (int)(Math.random() * -400);
+    x = (int)(Math.random() * 500);
+    y = (int)(Math.random() * -500);
     isMoving = true;
   }
   void show()
   {
     //your code here
     noStroke();
-    fill(255);
+    fill(255,255,255);
     ellipse(x,y,8,8);
   }
   void lookDown()
   {
     //your code here
-    if(y < 400 && y > 0  && get(x,y + 6) != color(0,0,0))
+    if(y < 500 && y > 0  && get(x,y + 6) != color(0,0,0))
       {
         isMoving = false;
       }
@@ -73,7 +73,7 @@ class Snowflake
   {
     //your code here
     fill(0);
-    ellipse(x,y,10,10);
+    ellipse(x,y,12,12);
   }
   void move()
   {
@@ -86,10 +86,10 @@ class Snowflake
   void wrap()
   {
     //your code here
-    if(y >= 400)
+    if(y >= 490)
       {
-        y = 0;
-        x = (int)(Math.random() * 400);
+        y = 10;
+        x = (int)(Math.random() * 500);
       }
   }
 }
